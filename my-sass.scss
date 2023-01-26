@@ -1,0 +1,76 @@
+// $myColor:rgba(0,255,255);
+
+// h1{
+//     $myColor:red !global;
+//     background-color: $myColor;
+// }
+
+// p{   
+//     background-color: $myColor;
+// }
+
+@import "./my-sass2";
+
+//partial
+@import "./varilables";
+
+@mixin font{
+    font: {
+        family: 'Courier New', Courier, monospace;
+        size: 50px;
+        weight: 700;
+    }
+}
+
+@mixin btn{
+    padding:  16px 20px;
+    text-align: center;
+    font-size: large;
+}
+
+.btn{
+    padding:  16px 20px;
+    text-align: center;
+    font-size: large;
+}
+
+.btn-success{
+    @include btn;
+    background-color: green;
+    color: white;
+}
+
+.btn-info{
+    // @extend .btn;
+    @extend .btn-success;
+    background-color: aqua;
+
+}
+
+nav{
+    $color: blue;
+    ul{
+        @include font;
+        // font-family: 'Courier New', Courier, monospace;
+        // font-size: 18px;
+        // font-weight: 700;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li{
+        @include font;
+        display: inline-block;
+    }
+    a{
+        @include font;
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+        color: $color;
+    }
+}
+
+p::after{
+    content: "" + str-index($string: "Hello World", $substring: "W"); //1
+}
